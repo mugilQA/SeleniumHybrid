@@ -1,0 +1,63 @@
+package Base;
+
+import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+
+import PageObject.LoginPage;
+
+
+public class BaseTest {
+	
+	static {
+        System.setProperty("log4j.configurationFile", "src/main/java/resources/log4j2.xml");
+    }
+	
+	public static final Logger log = LogManager.getLogger(BaseTest.class);
+	
+	public WebDriver driver;
+	public LoginPage loginpage;
+	@BeforeMethod
+	public void browsersetup() {
+		ChromeOptions options=new ChromeOptions();
+		options.addArguments("--disable-notifications");
+		options.addArguments("--start-maximized");
+		
+		//Disabale notification
+	Map<String, Object> preference=new HashMap<>();
+	preference.put("credentials_enable_service",false);
+	preference.put("profile.",false);
+	
+		driver=new ChromeDriver();
+		loginpage=new LoginPage(driver);
+		driver.get("https://www.saucedemo.com/");
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+	}
+	
+	@AfterMethod
+	public void teardown() {
+		if (driver != null)
+			driver.quit();
+		 log.info("========== Test Completed ==========");
+	}
+
+	public String captureScreenshot(String methodName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public WebDriver getDriver() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
+}
