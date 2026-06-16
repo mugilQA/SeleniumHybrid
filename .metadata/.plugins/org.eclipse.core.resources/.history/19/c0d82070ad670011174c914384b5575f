@@ -1,0 +1,13 @@
+
+public class SumOfIntegersInStringUsingStreams {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		String str="Automation33263ghajkdghak5q6";
+		int sum=str.chars().filter(Character::isDigit).sum();
+		System.out.println(sum);
+
+	}
+
+}

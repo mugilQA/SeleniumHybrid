@@ -1,0 +1,23 @@
+
+public class Jun6STringSeparator {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		String sr= "Automation@123";
+		char[] cr=sr.toCharArray();
+		String digit="";
+		String alphabet="";
+		String special="";
+		for (char c: cr) {
+			if (Character.isDigit(c)) {
+				digit+=c;
+			}else if(Character.isAlphabetic(c)) {
+				alphabet+=c;
+			}else {
+				special+=c;
+			}
+		}
+	}
+
+}

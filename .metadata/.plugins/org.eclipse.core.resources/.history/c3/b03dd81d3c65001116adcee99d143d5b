@@ -1,0 +1,24 @@
+package utilities;
+
+import java.io.FileInputStream;
+
+public class ExcelUtil {
+	
+	private static final String FILE_PATH=System.getProperty("user.dir")+"\\src\\main\\resources\\TestData\\testdata.xlsx";
+	
+	public static String getTestData(String testCaseame, String columnName) {
+		try(FileInputStream fis=new FileInputStream(FILE_PATH);
+				XSSFWorkbook workbook =new XSSFWorkbook(fis)){
+			XSSFSheet sheet=workbook.getSheet("LoginData");
+		}
+				
+				
+				
+				
+				)
+		
+		
+		
+	}
+
+}
